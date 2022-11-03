@@ -1,0 +1,68 @@
+.login-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 90vh;
+    width: auto;
+}
+
+.login-container div {
+    max-width: 250px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.login-content input {
+    display: flex;
+    flex-direction: column;
+    
+    height: 20px;
+    width: 200px;
+
+    border: 2px solid lightgray;
+    border-radius: 2px;
+}
+
+.login-content input:last-child {
+ margin-top: 5px;
+}
+
+.login-end {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly; 
+}
+
+.login-container .login {
+    background-color: rgb(126, 182, 255);
+    border: 2px solid rgb(126, 182, 255);
+    color: white;
+    border-radius: 2px;
+
+    height: 30px;
+    width: 60px;
+}
+
+.login-container .create_user {
+    background-color: rgb(126, 182, 255);
+    border: 2px dotted rgb(111, 160, 223);
+    color: white;
+    border-radius: 2px;
+    text-decoration: none;
+
+    height: 25px;
+    width: 90px;
+    margin-top: 25px;
+}
+
+.login-container button:hover { 
+    cursor: pointer;
+}
+
+
+.forgot-link {
+    color: rgb(148, 148, 148);
+}
