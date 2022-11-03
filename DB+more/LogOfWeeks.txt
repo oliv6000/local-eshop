@@ -1,0 +1,5 @@
+Uge 1: 26/01/2022 - 28/01/2022
+- Noget af det først som jeg blev opmærksom på var at der skulle laved om på prioteten af cases.
+	første eksempel er oprettelsen af bruger skulle være en mulighed, for mig gav det ikke helt
+	mening at man skulle kunne oprette sig før det var muligt at kunne logge ind, så jeg byttede
+	om på rækkefølged på disse 2 som noget af det første.
