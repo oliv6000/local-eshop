@@ -3,3 +3,13 @@ Uge 1: 26/01/2022 - 28/01/2022
 	første eksempel er oprettelsen af bruger skulle være en mulighed, for mig gav det ikke helt
 	mening at man skulle kunne oprette sig før det var muligt at kunne logge ind, så jeg byttede
 	om på rækkefølged på disse 2 som noget af det første.
+
+	-Jeg blev så også opmærksom på at der var en fejl i cases i forhold til nr, og det kan også ses på den første gantt der er blevet lavet, da den mangler nr 10 case.
+	som i dette tilfælde er Navigation bar, men den er blevet sat som 9 og erstattet den rigtige nr 9 som er rettelse i information på varer
+
+	-Jeg fandt et problem i forhold til en af kravende som ikke var blevet udfyldt endnu, så det kræver om omrokering i databaseb, da der mangler en column
+	som skal være procentdelen af et tilbud som kan sættes på en vare. (Se opdatering på ProductTable2)
+
+	- Nyt dilema i forhold til case nr 15, specefikt af hvad jeg kan komme frem til er det ikke muligt for mig at sende en sms
+	uden et sms gateway domain som forwarder din besked som du har lavet i din kode, til det specefikke nummer som du nu vil sende den til.
+	Så for nu skal man godkende at man vil skifte mail, ved at bruge en gendannelseskode som vil blive sendt til den mail som man vil erstatte.

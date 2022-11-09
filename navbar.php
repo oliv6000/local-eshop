@@ -35,13 +35,26 @@
             if($parsedID >= 0) {
                 ?>
                 <div class="navbar-item">
-                    <a href="../middleware/logout.php" class="fill-div navbar-item unselectable">Log out</a>
+                    <a href="/pages/user_account.php" class="fill-div navbar-item unselectable">Account</a>
+                </div>
+                <?php if(!isset($_SESSION['cart'])) { ?>
+                    <div class="navbar-item">
+                        <a href="/pages/cart.php" class="fill-div navbar-item unselectable">Cart</a>
+                    </div>
+                <?php } else { ?>
+                    <div class="navbar-item">
+                        <a href="/pages/cart.php/?method=cart" class="fill-div navbar-item unselectable">Cart(<?php  echo count($_SESSION['cart']); ?>)</a>
+                    </div>
+                <?php } ?>
+                <div class="navbar-item">
+                    <a href="/../middleware/logout.php" class="fill-div navbar-item unselectable">Log out</a>
                 </div>
                 <?php } ?>
                 
                 
         <?php    
-        } else {
+        } 
+        else {
         ?>
             <div class="navbar-item">
                 <a href="/pages/login.php" class="fill-div navbar-item unselectable">Login</a>

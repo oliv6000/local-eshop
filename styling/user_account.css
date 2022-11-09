@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 90vh;
+}
+
+.content {
+    height: 150px;
+    width: 400px;
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: flex-end;
+    flex-direction: column;
+    
+
+
+    background-color: #c3c3c33d;
+}
+
+.items {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.change {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.submitButton {
+    margin-top: 10px;
+}

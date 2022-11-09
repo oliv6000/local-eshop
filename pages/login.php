@@ -34,7 +34,7 @@ include '../head.php';
                 <div class="login-end">
                     <button class="login" type="submit">Login</button>
             </form>
-                    <a href="#" class="forgot-link">Forgot password</a>
+                    <a href="/pages/forgot_password.php" class="forgot-link">Forgot password</a>
                 </div>
             </div>
             <button onclick="location.href = 'create_user.php';" class="create_user" >Create a user</button>

@@ -6,14 +6,14 @@
 <html lang="en">
 <?php
 include '../head.php';
-include '../middleware/all_users.php';
+include_once '../classes/users.class.php';
+
 
 if ($_SESSION['role'] != 'administrator' && $_SESSION['role'] != 'worker') {
     header("location: ../pages/home.php");
 }
 
-$customers = getCustomers();
-
+$customers = (new Users())->getCustomers();
 ?>
 
 <body>
@@ -22,25 +22,26 @@ $customers = getCustomers();
     <?php if(count($customers) > 0){ ?>
         <table style="width:650px" class="yo">
             <tr>
-                <?php
-                    foreach ($customers[0] as $key => $value) {
-                        echo '<th>'.$key.'</th>';
-                    }
-                ?>
-                <th>Remove</th>
-                <th>Promote</th>
+                <th>id</th>
+                <th>name</th>
+                <th>email</th>
+                <th>phone</th>
+                <th>address</th>
+                <?php if($_SESSION['role'] == 'administrator') {echo '<th>promote</th>';} ?>
             </tr>
             <?php for ($i=0; $i < count($customers) ; $i++) { ?>
                 <tr>
-                    <?php foreach ($customers[$i] as $key => $value) { ?>
-                        <td><?php echo $value; ?></td>
+                    <td><?php echo $customers[$i]['id']; ?></td>
+                    <td><?php echo $customers[$i]['name']; ?></td>
+                    <td><?php echo $customers[$i]['email']; ?></td>
+                    <td><?php echo $customers[$i]['phone']; ?></td>
+                    <td><?php echo $customers[$i]['address']; ?></td>
+                    <?php if($_SESSION['role'] == 'administrator') { ?>
+                        <form action="../controllers/users.controller.php/?method=promote" method="post">
+                            <input name="id" type="hidden" value="<?php echo $customers[$i]['id']?>">
+                            <td><button class="delete" type="submit">promote</button></td>
+                        </form>
                     <?php } ?>
-                    <form action="../middleware/remove_user.php/?user_id=<?php echo $customers[$i]['id']?>" method="post">
-                        <td><button class="delete" type="submit">Remove</button></td>
-                    </form>
-                    <form action="../middleware/promote_user.php/?user_id=<?php echo $customers[$i]['id']?>" method="post">
-                        <td><button class="delete" type="submit">Make worker</button></td>
-                    </form>
                 </tr>
             <?php } ?>
         </table> 

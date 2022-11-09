@@ -11,7 +11,7 @@ if (isset($_GET['task']) && $_GET['task'] == "create_product") {
 // Update product info
 if (isset($_GET['task']) && $_GET['task'] == "update_product") {
     session_start();
-    updateProduct($_POST['name'], (double)$_POST['price'], $_POST['description']);
+    updateProduct((int)$_POST['id'], $_POST['name'], (double)$_POST['price'], $_POST['description']);
 }
 
 // archive product with id
@@ -38,19 +38,24 @@ function createProduct($name, $price, $description) {
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 
-function updateProduct($id) {
-    updateQuery("UPDATE products SET archived=1 WHERE id={$id}");
+function updateProduct($id, $name, $price, $description) {
+    updateQuery("UPDATE products SET name='{$name}', price=$price, description='{$description}' WHERE id={$id}");
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 
 function getProducts() {
-    $customers = selectQuery("SELECT * FROM products WHERE archived=0");
-    return $customers;
+    $products = selectQuery("SELECT * FROM products WHERE archived=0");
+    return $products;
+}
+
+function getProductFields() {
+    $fields = selectQuery("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='local-eshop' AND `TABLE_NAME`='products'");
+    return $fields;
 }
 
 function getArchivedProducts() {
-    $customers = selectQuery("SELECT * FROM products WHERE archived=1");
-    return $customers;
+    $archivedProducts = selectQuery("SELECT * FROM products WHERE archived=1");
+    return $archivedProducts;
 }
 
 function archiveProduct($id) {
